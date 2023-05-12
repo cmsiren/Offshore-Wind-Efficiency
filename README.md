@@ -1,4 +1,5 @@
 #Purpose
+
 The United States government has announced a goal of deploying 30 gigawatts (GW) of offshore wind energy by 2030. Deploying 30 GW of offshore wind energy has the potential to create new domestic manufacturing industries in the United States in pursuit of decarbonizing our nation's electric grid. 
 
 However, creating a domestic offshore wind energy industry and deploying 30 GW of offshore wind energy will require the federal government, states, and private corporations to expend substantial capital and political will in pursuit of this goal. Policymakers seeking to decarbonize our nation's electric grid must utilize resources efficiently in support of decarbonizing our country's electric grid. 
@@ -27,7 +28,9 @@ Wind.py calculates:
 
 # Results
 Emissions.png shows that offshore wind projects generally must have a capacity factor >.5 for the greenhouse gas emissions reduction potential for offshore wind energy to exceed the most efficient land-based wind energy sources. Offshore wind is expected to displace more emissions than solar projects that take natural gas projects offline, though solar projects that displace coal energy are generally more efficient at reducing emissions than offshore wind projects that displace natural gas power. 
+
 Emissions Reduction Costs.png shows that, based on current capital expenditure estimates for offshore wind projects, all offshore wind projects regardless of capacity factor can be economically justified based on a $50 social cost of carbon estimate. 
+
 This script provides policymakers with a tool to determine whether proposed offshore wind projects will more efficiently reduce carbon emissions than other renewable projects that may be available based on capacity factor. This script also shows that the benefits provided by offsetting damages associated with carbon emissions exceed the costs of the sample offshore wind project. 
 
 # Limitations
