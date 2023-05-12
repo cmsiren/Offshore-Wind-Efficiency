@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May 11 22:15:43 2023
-
-@author: chris
-"""
 #Purpose
 The United States government has announced a goal of deploying 30 gigawatts (GW) of offshore wind energy by 2030. Deploying 30 GW of offshore wind energy has the potential to create new domestic manufacturing industries in the United States in pursuit of decarbonizing our nation's electric grid. 
 
