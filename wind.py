@@ -183,3 +183,67 @@ ax1.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 fig2.tight_layout()
 fig2.savefig('Emission Reduction Costs.png')
 
+#%%
+# Creates a cost figure showing the value of the production tax credit. 
+# Assumes project receives full value of the PTC. PTC normalized to mWh in line
+# with cost variable above. 
+# https://www.irs.gov/pub/irs-drop/a-22-23.pdf
+
+ptc_kwh = .0275
+ptc_mwh = .0275*1e4
+
+net_cost_high = lc_cap_ex - (price *oswcf_low) - (ptc_mwh * oswcf_low)
+net_cost_low = lc_cap_ex - (price * oswcf_high) - (ptc_mwh * oswcf_high)
+net_cost_high = lc_cap_ex - (price * oswcf_low) - (ptc_mwh * oswcf_low)
+
+print('Expected cost per mWh:', net_cost_high)
+print('Expected cost per mWh:', net_cost_low)
+
+gas_worst =(net_cost_high/osw_cc_worst)
+gas_best = (net_cost_low/osw_cc_best)
+coal_worst = (net_cost_high/osw_coal_worst)
+coal_best = (net_cost_low/osw_coal_best)
+
+fig3,ax1 = plt.subplots()
+
+fig3.suptitle('Cost of reducing emissions with offshore wind \nby fuel source and capacity factor\n with production tax credit')
+ax1.set_ylabel('Dollars')
+ax1.set_xlabel('Offshore Wind Project Capacity Factor')
+ax1.axhline(scc_mult, color = 'purple', ls = '-', label = 'Social Cost of Carbon', lw = 1)
+ax1.plot((gas_worst, gas_best), color='blue', ls='--', label='Gas', lw = 1)
+ax1.plot((coal_worst, coal_best), color='red', ls='--', label='Coal', lw = 1)
+ax1.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+fig3.tight_layout()
+fig3.savefig('Emission Reduction Costs_PTC.png')
+
+#%% 
+
+# Creates a cost figure showing the value of the investment tax credit. 
+# Assumes project receives full value of the ITC. 
+# https://windexchange.energy.gov/projects/tax-credits
+# Does not include potential cost savings from 
+# advanced manufacturing tax credits. 
+
+itc=.3
+
+net_cost_high = (lc_cap_ex*(1-itc)) - (price * oswcf_low) 
+net_cost_low = (lc_cap_ex*(1-itc))- (price * oswcf_high)
+
+gas_worst =(net_cost_high/osw_cc_worst)
+gas_best = (net_cost_low/osw_cc_best)
+coal_worst = (net_cost_high/osw_coal_worst)
+coal_best = (net_cost_low/osw_coal_best)
+
+fig4,ax1 = plt.subplots()
+
+fig4.suptitle('Cost of reducing emissions with offshore wind \nby fuel source and capacity factor\n with investment tax credit')
+ax1.set_ylabel('Dollars')
+ax1.set_xlabel('Offshore Wind Project Capacity Factor')
+ax1.axhline(scc_mult, color = 'purple', ls = '-', label = 'Social Cost of Carbon', lw = 1)
+ax1.plot((gas_worst, gas_best), color='blue', ls='--', label='Gas', lw = 1)
+ax1.plot((coal_worst, coal_best), color='red', ls='--', label='Coal', lw = 1)
+ax1.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+fig4.tight_layout()
+fig4.savefig('Emission Reduction Costs_ITC.png')
